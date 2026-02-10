@@ -1,7 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 
 
-require('dotenv').config();
+
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const BASE_URL = process.env.BASE_URL || 'https://staging.example.com';
 const API_BASE_URL = process.env.API_BASE_URL || 'https://api.staging.example.com';
