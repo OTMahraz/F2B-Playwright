@@ -1,13 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
-
+import {BASE_URL} from './config/env.config'; 
 
 
 import dotenv from 'dotenv';
 dotenv.config();
 
 
-const BASE_URL = process.env.BASE_URL || 'https://staging.example.com';
-const API_BASE_URL = process.env.API_BASE_URL || 'https://api.staging.example.com';
+
 
 /**
  * Configuration Playwright complète avec support de multiples projets,
@@ -41,8 +40,9 @@ export default defineConfig({
 
   /* Projets multi-navigateurs */
   projects: [
+   
     {
-      name: 'chromium',
+      name: 'uat-chromium',
       use: { ...devices['Desktop Chrome'] },
     },
     {
@@ -72,6 +72,7 @@ export default defineConfig({
     ['list'],
     ['allure-playwright', { outputDir: 'allure-results' }],
   ],
+
 
   /* Global setup & teardown (optionnel) */
   webServer: {
